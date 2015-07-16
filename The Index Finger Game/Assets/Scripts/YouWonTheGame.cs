@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Voittopelipopup : MonoBehaviour {
+public class YouWonTheGame : MonoBehaviour {
 	
 	void Update () {
-		if (Voititpelin.voitto == 1) {
+		if (Wingame.victory == 1) {
 						GetComponent<GUITexture> ().enabled = true;
 				}
 	}

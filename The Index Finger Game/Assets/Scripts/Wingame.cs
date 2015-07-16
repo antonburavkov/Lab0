@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Kuolema : MonoBehaviour {
-
+public class Wingame : MonoBehaviour {
+	public static int victory = 0;
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.tag == "Player") {
-			//Liike.dead = true;
-			//Liike.deathcooldown = 0.5f;
-			KeyboardMove.dead = true;
+			Time.timeScale = 0;
+			victory = 1;
 		}
 	}
 }

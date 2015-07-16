@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Liiketouch : Kosketusviesti {
+public class Movetouch : TouchMessage {
 	
 	Vector3 velocity = Vector3.zero;
 	public Vector3 gravity;
 	public Vector3 hups;
-	public Vector3 liikkuu;
-	public Vector3 liikkuuhoriz;
-	bool hyppy = false;
-	bool liikuvasen = false;
-	bool liikuoikea = false;
-	public float maksiminopeus = 5f;
+	public Vector3 moving;
+	public Vector3 movinghorizontal;
+	bool jump = false;
+	bool moveleft = false;
+	bool moveright = false;
+	public float maxspeed = 5f;
 	
 	
 	// Use this for initialization
@@ -22,47 +22,47 @@ public class Liiketouch : Kosketusviesti {
 	{
 		if (Kosketusviesti.hypataan == 1) 
 		{
-			hyppy = true;
+			jump = true;
 		}
 		if (Kosketusviesti.hypataan == 0) 
 		{
-			hyppy = false;
+			jump = false;
 		}
 		if (Kosketusviesti.vasen == 1) 
 		{
-			liikuvasen = true;		
+			moveleft = true;		
 		}
 		if (Kosketusviesti.oikea == 1) 
 		{
-			liikuoikea = true;		
+			moveright = true;		
 		}
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 		velocity += gravity * Time.deltaTime;
-		velocity += liikkuu * Time.deltaTime;
-		if (hyppy == true) 
+		velocity += moving * Time.deltaTime;
+		if (jump == true) 
 		{
 			velocity.y += hups.y;
 		}
-		if (hyppy = false)
+		if (jump = false)
 		{
 			velocity.y -= hups.y;
 			velocity.x += 1f;
 			
 		}
-		if (liikuvasen == true) 
+		if (moveleft == true) 
 		{
-			liikuvasen = false;
-			velocity.z += liikkuuhoriz.z;
+			moveleft = false;
+			velocity.z += movinghorizontal.z;
 		}
-		if (liikuoikea == true) 
+		if (moveright == true) 
 		{
-			liikuoikea = false;
-			velocity.z -= liikkuuhoriz.z;
+			moveright = false;
+			velocity.z -= movinghorizontal.z;
 		}
-		velocity = Vector3.ClampMagnitude (velocity, maksiminopeus);
+		velocity = Vector3.ClampMagnitude (velocity, maxspeed);
 		
 		transform.position += velocity * Time.deltaTime;
 	}

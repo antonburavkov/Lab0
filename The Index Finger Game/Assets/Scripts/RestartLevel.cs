@@ -10,7 +10,7 @@ public class RestartLevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Liike.death == 1) 
+		if (Move.death == 1) 
 		{
 			GetComponent<GUITexture>().enabled = true;
 			Time.timeScale = 0;
@@ -18,7 +18,7 @@ public class RestartLevel : MonoBehaviour {
 	}
 	public void OnMouseDown()
 	{
-		Liike.death = 0;
+		Move.death = 0;
 		Time.timeScale = 1;
 		Application.LoadLevel("androidpeli");
 

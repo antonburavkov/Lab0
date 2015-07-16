@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Kosketuslogiikka : MonoBehaviour {
+public class Touchlogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -14,7 +14,7 @@ public class Kosketuslogiikka : MonoBehaviour {
 		if (Input.touches.Length <= 0) 
 		{
 				
-						//Jos ruutua ei kosketeta, näin käy.
+						//If screen is not touched this happens
 		
 		}
 
@@ -27,12 +27,12 @@ public class Kosketuslogiikka : MonoBehaviour {
 
 				if(Input.GetTouch(i).phase == TouchPhase.Began)
 				{
-					this.SendMessage("NappiPainettu");
+					this.SendMessage("ButtonPressed");
 
 				}
 				if(Input.GetTouch(i).phase == TouchPhase.Ended)
 				{
-					this.SendMessage("NappiPainamatta");
+					this.SendMessage("ButtonNotPressed");
 				}
 
 				}

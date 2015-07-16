@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Voititpelin : MonoBehaviour {
-	public static int voitto = 0;
+public class LoadNextLevel : MonoBehaviour {
+
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.tag == "Player") {
-			Time.timeScale = 0;
-			voitto = 1;
+			Application.LoadLevel(Application.loadedLevel + 1);
 		}
 	}
 }

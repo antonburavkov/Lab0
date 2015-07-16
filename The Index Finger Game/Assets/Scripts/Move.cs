@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Liike : MouseButton {
+public class Move : MouseButton {
 	
 	Vector2 velocity = Vector2.zero;
 	public Vector2 gravity;
 	public Vector2 hups;
-	public float liikkuu;
-	public Vector2 liikkuuhoriz;
-	bool hyppy = false;
-	bool liikuvasen = false;
-	bool liikuoikea = false;
-	public float maksiminopeus = 3f;
+	public float moving;
+	public Vector2 movinghoriz;
+	bool jump = false;
+	bool moveleft = false;
+	bool moveright = false;
+	public float maxspeed = 3f;
 	public static float deathcooldown;
 	public static bool dead = false;
 	public static int death = 0;
@@ -30,7 +30,7 @@ public class Liike : MouseButton {
 	public void Update()
 	{
 		anim.SetBool ("isJumping", isJumping);
-		anim.SetFloat ("Movespeed", liikkuu);
+		anim.SetFloat ("Movespeed", moving);
 		
 		if (dead)
 		{
@@ -48,22 +48,22 @@ public class Liike : MouseButton {
 		}
 		
 		
-		if (MouseButton.hypataan == 1) 
+		if (MouseButton.jumping == 1) 
 		{
-			hyppy = true;
+			jump = true;
 		}
-		if (MouseButton.hypataan == 0) 
+		if (MouseButton.jumping == 0) 
 		{
-			hyppy = false;
+			jump = false;
 		}
-		if (MouseButton.vasen == 1) 
+		if (MouseButton.left == 1) 
 		{
-			liikuvasen = true;
+			moveleft = true;
 			transform.localScale = new Vector2(-1, 1);
 		}
-		if (MouseButton.oikea == 1) 
+		if (MouseButton.right == 1) 
 		{
-			liikuoikea = true;
+			moveright = true;
 			transform.localScale = new Vector2(1, 1);
 		}
 	}
@@ -73,7 +73,7 @@ public class Liike : MouseButton {
 		if(dead)
 			return;
 
-		if (hyppy == true) {
+		if (jump == true) {
 			if(isJumping == false)
 			{
 			GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpHeight);
@@ -81,23 +81,23 @@ public class Liike : MouseButton {
 			}
 		}
 			
-		if (liikuvasen == true) 
+		if (moveleft == true) 
 		{
-			liikuvasen = false;
+			moveleft = false;
 			GetComponent<Rigidbody2D> ().AddForce (-Vector2.right * movespeed);
-			liikkuu = 1;
+			moving = 1;
 
 
 		} 
 		else 
 		{
-			liikkuu = 0;
+			moving = 0;
 		}
-		if (liikuoikea == true) 
+		if (moveright == true) 
 		{
-			liikuoikea = false;
+			moveright = false;
 			GetComponent<Rigidbody2D> ().AddForce (Vector2.right * movespeed);
-			liikkuu = 1;
+			moving = 1;
 		} 
 
 	}

@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Taso2 : MonoBehaviour {
+public class Death : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.tag == "Player") {
-			Application.LoadLevel(Application.loadedLevel + 1);
+			//Move.dead = true;
+			//Move.deathcooldown = 0.5f;
+			KeyboardMove.dead = true;
 		}
 	}
 }

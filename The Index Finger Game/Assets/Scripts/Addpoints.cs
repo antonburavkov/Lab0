@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pistelisaa : MonoBehaviour {
+public class Addpoints : MonoBehaviour {
 
 
 
 void OnTriggerEnter(Collider collider)
 	{
 		if (collider.tag == "Player") {
-			Score.LisaaPiste();
+			Score.Addpoint();
 			gameObject.SetActive(false);
 		}
 	}

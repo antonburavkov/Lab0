@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// BACK UP FILE IGNORE*******************************************************************************************************************************************
 public class Liikebackup : MouseButton {
 	
 	Vector3 velocity = Vector3.zero;
