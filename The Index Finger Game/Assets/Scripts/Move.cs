@@ -5,7 +5,7 @@ public class Move : MouseButton {
 	
 	Vector2 velocity = Vector2.zero;
 	public Vector2 gravity;
-	public Vector2 hups;
+	public Vector2 whoops;
 	public float moving;
 	public Vector2 movinghoriz;
 	bool jump = false;
@@ -48,20 +48,20 @@ public class Move : MouseButton {
 		}
 		
 		
-		if (MouseButton.jumping == 1) 
+		if (MouseButton.hypataan == 1) 
 		{
 			jump = true;
 		}
-		if (MouseButton.jumping == 0) 
+		if (MouseButton.hypataan == 0) 
 		{
 			jump = false;
 		}
-		if (MouseButton.left == 1) 
+		if (MouseButton.vasen == 1) 
 		{
 			moveleft = true;
 			transform.localScale = new Vector2(-1, 1);
 		}
-		if (MouseButton.right == 1) 
+		if (MouseButton.oikea == 1) 
 		{
 			moveright = true;
 			transform.localScale = new Vector2(1, 1);

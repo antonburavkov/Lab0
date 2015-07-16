@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movetouch : TouchMessage {
+public class MoveTouch : TouchMessage {
 	
 	Vector3 velocity = Vector3.zero;
 	public Vector3 gravity;
 	public Vector3 hups;
 	public Vector3 moving;
-	public Vector3 movinghorizontal;
+	public Vector3 movinghoriz;
 	bool jump = false;
 	bool moveleft = false;
 	bool moveright = false;
@@ -20,19 +20,19 @@ public class Movetouch : TouchMessage {
 	}
 	public void Update()
 	{
-		if (Kosketusviesti.hypataan == 1) 
+		if (TouchMessage.jump == 1) 
 		{
 			jump = true;
 		}
-		if (Kosketusviesti.hypataan == 0) 
+		if (TouchMessage.jump == 0) 
 		{
 			jump = false;
 		}
-		if (Kosketusviesti.vasen == 1) 
+		if (TouchMessage.left == 1) 
 		{
 			moveleft = true;		
 		}
-		if (Kosketusviesti.oikea == 1) 
+		if (TouchMessage.right == 1) 
 		{
 			moveright = true;		
 		}
@@ -55,12 +55,12 @@ public class Movetouch : TouchMessage {
 		if (moveleft == true) 
 		{
 			moveleft = false;
-			velocity.z += movinghorizontal.z;
+			velocity.z += movinghoriz.z;
 		}
 		if (moveright == true) 
 		{
 			moveright = false;
-			velocity.z -= movinghorizontal.z;
+			velocity.z -= movinghoriz.z;
 		}
 		velocity = Vector3.ClampMagnitude (velocity, maxspeed);
 		

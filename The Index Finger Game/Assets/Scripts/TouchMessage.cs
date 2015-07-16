@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TouchMessage : Touchlogic {
+public class TouchMessage : TouchLogic {
 
-	public static int jumping = 0;
+	public static int jump = 0;
 	public static int left = 0;
 	public static int right = 0;
 
@@ -11,7 +11,7 @@ public class TouchMessage : Touchlogic {
 	{
 		if (this.name == "Jump") 
 		{
-			jumping = 1;
+			jump = 1;
 		}
 		if (this.name == "Left Button") 
 		{
@@ -23,9 +23,9 @@ public class TouchMessage : Touchlogic {
 		}
 		
 	}
-	void NappiPainamatta()
+	void ButtonNotPressed()
 	{
-		jumping = 0;
+		jump = 0;
 		left = 0;
 		right = 0;
 		

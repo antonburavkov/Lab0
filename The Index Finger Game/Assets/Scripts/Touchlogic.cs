@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Touchlogic : MonoBehaviour {
+public class TouchLogic : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
