@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MouseButton : MonoBehaviour {
-public static int jumping = 0;
-public static int left = 0;
-public static int right = 0;
-public void OnMouseDown()
+public class TouchMessage : Touchlogic {
+
+	public static int jumping = 0;
+	public static int left = 0;
+	public static int right = 0;
+
+	void NappiPainettu()
 	{
 		if (this.name == "Jump") 
 		{
@@ -19,17 +21,13 @@ public void OnMouseDown()
 		{
 			right = 1;
 		}
+		
 	}
-public void OnMouseUp()
+	void NappiPainamatta()
 	{
 		jumping = 0;
 		left = 0;
 		right = 0;
-	}
-
-	public void OnMouseClick()
-	{
-
-
+		
 	}
 }

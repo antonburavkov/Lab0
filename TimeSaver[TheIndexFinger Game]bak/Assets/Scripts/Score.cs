@@ -6,7 +6,7 @@ public class Score : MonoBehaviour {
 	static int score = 0;
 	static int highscore;
 
-	static public void LisaaPiste()
+	static public void Addpoint()
 	{
 		score++;
 
