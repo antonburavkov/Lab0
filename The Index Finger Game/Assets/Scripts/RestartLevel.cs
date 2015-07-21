@@ -20,7 +20,7 @@ public class RestartLevel : MonoBehaviour {
 	{
 		KeyboardMove.dead = false;
 		Time.timeScale = 1;
-		Application.LoadLevel("androidpeli");
+		Application.LoadLevel("1_Game");
 
 	}
 }

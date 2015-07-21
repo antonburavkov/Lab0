@@ -16,16 +16,18 @@ public class CameraFollow : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		//Sets variables for max and min bounds which camera cannot follow past and sets following bool to true so it follows
 		_min = Bounds.bounds.min;
 		_max = Bounds.bounds.max;
 		Following = true;
-	
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		//Starts by checking if player is dead or not
 		if (KeyboardMove.dead == false) {
+		
 			var x = transform.position.x;
 			var y = transform.position.y;
 
